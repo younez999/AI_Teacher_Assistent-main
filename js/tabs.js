@@ -47,7 +47,7 @@ async function generateExercises() {
 async function generateResources() {
     const input = document.getElementById('resources-input').value.trim();
     const output = document.getElementById('resources-output');
-    const apiKey = 'AIzaSyCmRUMwVq8a75r_Al5yIxTiaIccj0J7HgQ';
+
     const maxResults = 3;
 
     if (!input) {
@@ -94,8 +94,7 @@ async function generateResources() {
 }
 // This new function is for handling AI Detection and displaying the circular progress
 // New AI Detection function to handle circular progress with animation
-// New AI Detection function to handle circular progress with animation
-// New AI Detection function to handle circular progress with animation
+
 async function generateAIDetection() {
     const input = document.getElementById('ai-detection-input').value.trim();
     if (!input) return showError('ai-detection-output', 'Please enter a paragraph');
