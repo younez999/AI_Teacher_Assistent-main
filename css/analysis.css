@@ -1,0 +1,27 @@
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+  }
+  
+  .file-upload-label {
+    cursor: pointer;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    background-color: #168e2a; 
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .file-upload-label:hover {
+    background-color: #022f04;
+  }
+  
+  .file-name {
+    color: #555;
+    font-style: italic;
+  }

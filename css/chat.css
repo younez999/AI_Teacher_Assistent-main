@@ -1,0 +1,95 @@
+
+/* Modern Message Bubbles */
+.question-section {
+    background: var(--primary-color);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 18px 18px 4px 18px;
+    margin: 12px 0;
+    max-width: 75%;
+    align-self: flex-end;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.question-section::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 0;
+    border: 10px solid transparent;
+    border-left-color: var(--primary-color);
+    border-top-color: var(--primary-color);
+}
+
+.answer-section {
+    background: white;
+    padding: 14px 20px;
+    border-radius: 18px 18px 18px 4px;
+    margin: 12px 0;
+    max-width: 75%;
+    align-self: flex-start;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    border: 1px solid #EEE;
+    position: relative;
+}
+
+.answer-section::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    border: 10px solid transparent;
+    border-right-color: white;
+    border-top-color: white;
+}
+/* Enhanced Chat Interface */
+.chat-box {
+    height: 500px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #FBFBFB;
+    border-radius: 12px;
+    border: 1px solid #696363;
+}
+
+.input-container {
+    display: flex;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid #EEE;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.input-container input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.1);
+}
+
+.input-container button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-container button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}

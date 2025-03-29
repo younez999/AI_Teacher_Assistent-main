@@ -1,0 +1,126 @@
+:root {
+    --primary-color: #B71C1C; /* Deep red */
+    --secondary-color: #D32F2F;
+    --accent-color: #FFD700; /* Gold */
+    --background-color: #FFF9F0;
+    --text-color: #2D2926;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFF9F0 0%, #FFEEE1 100%);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dragon-icon {
+    height: 100px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+/* Enhanced Input Areas */
+.input-area {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.input-area input, .input-area textarea {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid #EEE;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.input-area textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-area input:focus, .input-area textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(183, 28, 28, 0.1);
+    outline: none;
+}
+
+.input-area button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-area button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* Enhanced Output Boxes */
+.output-box {
+    background: white;
+    border: 1px solid #EEE;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 25px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,87 @@
+/* Loading Animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Circular Progress Styles */
+.circular-progress-container {
+    display: flex;
+    flex-direction: column;  /* Stack the circle and text vertically */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 250px; /* Give some space for both the circle and the text */
+}
+
+.circular-progress {
+    position: relative;
+    width: 150px;  /* Width of the circular progress */
+    height: 150px; /* Height of the circular progress */
+    border-radius: 50%;
+    background-color: #e6e6e6; /* Light gray background for unfilled area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px; /* Size of the percentage text */
+    font-weight: bold;
+    color: #000; /* Black text color for the percentage */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow to elevate the circle */
+    transition: background 0.3s ease; /* Smooth transition for the progress fill */
+    overflow: hidden;
+}
+
+/* Percentage text inside the circle */
+.circular-progress .percentage {
+    position: absolute;
+    font-size: 32px;
+    color: #000; /* Black color for the percentage text */
+}
+
+/* Message below the circle */
+.circular-progress-message {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px; /* Spacing between circle and text */
+}
+
+/* For when the progress percentage is less than 50% (Green) */
+.green {
+    color: green;
+}
+
+/* For when the progress percentage is greater than 50% (Red) */
+.red {
+    color: red;
+}
+
+/* Animate the progress - keyframe for rotating the conic gradient */
+@keyframes progressAnimation {
+    0% {
+        background: conic-gradient(#e6e6e6 0deg, #e6e6e6 0deg);
+    }
+    100% {
+        background: conic-gradient(var(--dynamic-color) 0deg, var(--dynamic-color) 100%, #e6e6e6 100%);
+    }
+}
+
+/* Responsive Design - Make sure the circle resizes well on smaller screens */
+@media (max-width: 768px) {
+    .circular-progress {
+        width: 120px;
+        height: 120px;
+        font-size: 28px; /* Adjust font size for small screens */
+    }
+
+    .circular-progress .percentage {
+        font-size: 24px; /* Adjust the percentage font size for small screens */
+    }
+
+    .circular-progress-message {
+        font-size: 14px; /* Adjust message font size for small screens */
+    }
+}
