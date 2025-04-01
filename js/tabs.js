@@ -92,6 +92,59 @@ async function generateResources() {
         output.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Error loading resources</div>';
     }
 }
+async function generateWikiResources() {
+    const input = document.getElementById('resources-input').value.trim();
+    const wikiOutput = document.getElementById('wiki-resources');
+  
+    if (!input) {
+      wikiOutput.innerHTML = '<div class="error"><i class="fas fa-exclamation-circle"></i> Please enter a topic first</div>';
+      return;
+    }
+  
+    wikiOutput.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Searching Wikipedia resources...</div>';
+  
+    try {
+      const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${encodeURIComponent(input)}`;
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+  
+      wikiOutput.innerHTML = '';
+  
+      if (data.query && data.query.search && data.query.search.length > 0) {
+        const resourceGrid = document.createElement('div');
+        resourceGrid.classList.add('resource-grid');
+  
+        data.query.search.forEach(item => {
+          // Create an anchor element that wraps the entire card
+          const link = document.createElement('a');
+          link.href = `https://en.wikipedia.org/?curid=${item.pageid}`;
+          link.target = "_blank";
+          link.classList.add("wiki-card");
+  
+          link.innerHTML = `
+            <h4 class="wiki-title">${item.title}</h4>
+            <p class="wiki-snippet">${item.snippet.replace(/<\/?[^>]+(>|$)/g, "")}...</p>
+          `;
+  
+          resourceGrid.appendChild(link);
+        });
+  
+        wikiOutput.appendChild(resourceGrid);
+      } else {
+        wikiOutput.innerHTML = '<div class="error"><i class="fas fa-exclamation-circle"></i> No Wikipedia resources found</div>';
+      }
+    } catch (error) {
+      console.error('Error fetching Wikipedia resources:', error);
+      wikiOutput.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Error loading Wikipedia resources</div>';
+    }
+  }
+  
+  
+  // New function to search both YouTube and Wikipedia resources simultaneously
+  function generateAllResources() {
+    generateResources();
+    generateWikiResources();
+  }
 // This new function is for handling AI Detection and displaying the circular progress
 // New AI Detection function to handle circular progress with animation
 

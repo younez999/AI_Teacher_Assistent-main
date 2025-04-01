@@ -1,3 +1,6 @@
+Below is an updated version of your README.md file that documents the latest changes you made—namely, the integration of clickable Wikipedia resource cards in the Multimedia Resources tab. In this update, we note that clicking a Wikipedia card will now open the corresponding Wikipedia page in a new tab.
+
+```md
 # AI Assistant for Teachers
 
 An AI-powered web application designed to assist Chinese language/culture teachers in lesson planning, exercise creation, multimedia resource curation, student performance analysis, and AI-content detection.
@@ -7,7 +10,9 @@ An AI-powered web application designed to assist Chinese language/culture teache
 - **Chatbot Assistant** – Ask teaching-related questions and get AI-generated responses.
 - **Lesson Plan Generator** – Create complete, structured lesson plans by topic.
 - **Exercise Generator** – Generate vocabulary, grammar, reading, and writing tasks.
-- **Multimedia Resources** – Search for videos and audio materials related to Chinese culture/language.
+- **Multimedia Resources** – Search for videos and articles related to Chinese culture/language.  
+  / **YouTube Videos:** Curated video resources.
+  / **Wikipedia Resources:** Now includes lively, clickable resource cards that send you directly to the relevant Wikipedia page.
 - **Student Analysis** – Upload Excel sheets to analyze student performance or attendance.
 - **AI Detection** – Detect whether a piece of writing is AI-generated.
 
@@ -49,15 +54,15 @@ project-root/
 1. **Clone or Download** this repository.
 2. Replace the OpenRouter API key in `js/config.js`:
 
-```js
-const API_KEY = 'your-openrouter-api-key';
-```
+   ```js
+   const API_KEY = 'your-openrouter-api-key';
+   ```
 
 3. *(Optional)* Replace the YouTube API key in `js/tabs.js` for the resource search feature:
 
-```js
-const apiKey = 'your-youtube-api-key';
-```
+   ```js
+   const apiKey = 'your-youtube-api-key';
+   ```
 
 4. Open `index.html` in a browser to run the app.
 
@@ -77,6 +82,14 @@ const apiKey = 'your-youtube-api-key';
 - Add support for multiple languages
 - Teacher accounts and cloud storage
 
+## ✨ Recent Updates
+
+- **Clickable Wikipedia Resource Cards:**  
+  The Multimedia Resources tab now includes a dedicated section for Wikipedia resources. Each card is styled with a lively, modern UI and is fully clickable—opening the related Wikipedia page in a new tab for seamless access.
+
 ## 📄 License
 
 This project is for educational and personal use. Feel free to customize or expand upon it.
+```
+
+This updated README now reflects the changes you implemented. Simply replace your current README.md with this version to inform users about the new clickable Wikipedia resource feature.
