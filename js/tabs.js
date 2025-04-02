@@ -43,7 +43,7 @@ async function generateExercises() {
 // The generateAIResponse function remains the same, as it will now handle AI detection as well.
 
 
-// Replace the existing generateResources function with this:
+
 async function generateResources() {
     const input = document.getElementById('resources-input').value.trim();
     const output = document.getElementById('resources-output');
@@ -92,6 +92,7 @@ async function generateResources() {
         output.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Error loading resources</div>';
     }
 }
+// New function to fetch Wikipedia resources using the free MediaWiki API
 async function generateWikiResources() {
     const input = document.getElementById('resources-input').value.trim();
     const wikiOutput = document.getElementById('wiki-resources');

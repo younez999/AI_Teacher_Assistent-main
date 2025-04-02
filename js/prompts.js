@@ -1,66 +1,99 @@
 const PROMPT_TEMPLATES = {
-    lessonPlan: (topic) => `
-    As a Chinese language teaching expert, create a comprehensive lesson plan about "${topic}". 
-    Include these sections in markdown format:
-    
-    # Lesson Title: [creative title]
-    ## Grade Level: [appropriate level]
-    ## Lesson Duration: [time]
-    
-    ### Learning Objectives:
-    - At least 3 clear objectives
-    
-    ### Materials Needed:
-    - List of required materials
-    
-    ### Lesson Structure:
-    1. Warm-up Activity (5-10 mins)
-    2. Presentation (15-20 mins)
-    3. Practice Activities (20-25 mins)
-    4. Assessment (10-15 mins)
-    5. Extension/Homework
-    
-    ### Cultural Notes:
-    - Relevant cultural insights
-    
-    Provide the response in proper markdown formatting.`,
+   lessonPlan: (topic) => `
+请作为一名中文教学专家，以"${topic}"为主题 ,生成一份完整的授课计划。输出要求为整洁的纯文本,不需大量使用Markdown格式符号,但必须包含以下所有内容：
+
+【基本信息】
+- 课程名称：
+- 课程编号：
+- 学分：
+- 开课学院：
+- 学时：
+- 课程类别：
+- 课程性质：
+
+【一、课程的性质】
+详细说明本课程的定位、背景及开设意义。
+
+【二、课程目标】
+请明确列出本课程的教学目标，分为以下几个方面：
+（一）思想、素质教育目标  
+（二）知识教学目标  
+（三）能力教学目标
+
+【三、课程教学内容及基本要求】
+按照知识单元或章节，详细描述每一部分的教学内容及基本要求，并注明各部分的课时安排。
+
+【四、实验实践环节及基本要求】
+如有实验或实践环节，请详细说明；如无，则注明“本课程无实验实践环节”。
+
+【五、课程教学内容与课程目标对应关系矩阵】
+提供一份矩阵，列出课程内容与教学目标之间的对应关系。
+
+【六、对学生能力培养的要求】
+说明本课程如何培养学生的综合能力，特别是对文化素养、逻辑思辨能力和国际视野的要求。
+
+【七、课程学时分配】
+详细列出各教学单元或章节的学时分配，并附上课程学时分配表。
+
+【八、建议教材和教学参考书目】
+列出教材和主要参考书，包括作者、出版社及出版年份等信息。
+
+【九、课程考核】
+说明本课程的考核方式、成绩构成及评定标准。
+
+请确保输出内容全面、结构清晰，且避免过多的标记符号，只使用必要的格式标识，以便于直接阅读和后续使用。
+`
+
+
+    ,
 
     exercises: (topic) => `
-    Generate 5 different types of exercises about "${topic}" for Chinese language learners.
-    For each exercise type, include:
+请作为一位深谙中国文化的专家，针对"${topic}"这一主题 ,设计一组能够激发学生对中国文化深入探索和思考的练习。请确保输出内容侧重于文化理解与体验,并可供教师直接采纳或启发创意。请按照以下部分组织内容,并使用Markdown格式输出:
+
+1. **讨论题**  
+   - 提出开放性讨论题，鼓励学生探讨"${topic}"在中国文化中的历史意义、社会影响以及现代价值。  
+   - 例如：讨论该主题在传统习俗、艺术表现或社会发展中的作用。
+
+2. **研究性任务**  
+   - 设计一项研究任务，要求学生查阅相关资料，分析"${topic}"背后的文化内涵和发展脉络。  
+   - 任务说明中应包括研究目的、步骤及预期成果。
+
+3. **创意项目**  
+   - 提出创意项目，如制作海报、短视频、文化展板或数字故事，让学生以"${topic}"为核心表达他们对中国文化的理解。  
+   - 列出创作要点及评价标准。
+
+4. **案例分析**  
+   - 选取与"${topic}"相关的具体案例或历史事件，让学生进行深度分析，讨论其文化意义和对现代社会的启示。  
+   - 要求学生撰写分析报告，并提出自己的见解。
+
+5. **互动活动**  
+   - 设计一个课堂互动活动（如小组讨论、角色扮演或情景模拟），以"${topic}"为背景促进学生之间的交流与合作。  
+   - 活动安排应包括目标、过程及预期讨论结果。
+
+请确保整体结构清晰、条理分明，使教师能直接参考或从中获得灵感来组织课堂练习。
+`
+
+,
+
+    analysis: (input) =>  `
+    分析以下学生数据：
     
-    - Clear instructions in Chinese (with Pinyin) and English
-    - Appropriate difficulty level indication
-    - Example answers where applicable
+       "${input}"
     
-    Exercise types should include:
-    1. Vocabulary practice
-    2. Grammar drill
-    3. Reading comprehension
-    4. Listening/speaking activity
-    5. Writing task
+    数据可能包括学生的成绩信息（例如，每次作业的学生姓名和成绩）或出勤记录。请执行以下分析：
     
-    Format the response in markdown with clear section headings.`,
-
+    1. 对于成绩数据：
+       - 计算每次作业的平均成绩。
+       - 找出平均成绩显著低于其他作业的作业（例如，如果第二次作业的平均成绩明显较低，请建议复习其内容）。
+       - 突出显示任何趋势、优势或改进空间。
     
-
-    analysis: (input) => `Analyze the following student data:
-
-   "${input}"
-
-The data may include student performance information (e.g., names and grades for each homework) or attendance records. Please perform the following analysis:
-
-1. For performance data:
-   - Calculate the average grade for each homework assignment.
-   - Identify any homework where the average grade is significantly lower than others (for example, if the second homework shows a notably lower average, recommend reviewing its content).
-   - Highlight any trends, strengths, or areas for improvement.
-
-2. For attendance records:
-   - Identify students with irregular attendance patterns, such as those who have missed three or more consecutive classes.
-   - Provide recommendations on addressing these attendance issues.
-
-Please format your analysis in clear markdown with sections like "Observations" and "Recommendations".
-`,
+    2. 对于出勤记录：
+       - 找出出勤情况不规律的学生，例如那些连续缺席三次或以上的学生。
+       - 提供解决这些出勤问题的建议。
+    
+    请使用清晰的Markdown格式编写你的分析 , 并包含“观察”和“建议”等部分。
+    `
+    ,
      // New prompt for AI Detection
 aiDetection: (input) =>  `Analyze the following text for characteristics typical of AI-generated content. Consider factors such as repetitive phrasing, overly consistent sentence structure, lack of personal nuance, and unnatural transitions. Then, assign a likelihood score from 0 to 100—where 0 means it is almost certainly human-written and 100 means it is almost certainly AI-generated. Only output the numeric score.
 Text: "${input}"`
