@@ -25,3 +25,13 @@
     color: #555;
     font-style: italic;
   }
+  #analysis-output p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  #analysis-output canvas {
+    margin-top: 20px;
+  }
+  
