@@ -117,15 +117,17 @@
     <button onclick="generateStudentAnalysis()">Generate Charts</button>
   </div>
   <div id="analysis-output" class="output-box">
-    <!-- Canvas for the chart -->
+    <!-- Canvas for the first chart -->
     <canvas id="scoreChart" width="400" height="200"></canvas>
+
+    <!-- Canvas for the second chart -->
+    <canvas id="studentGradesChart" width="400" height="200" style="margin-top: 20px;"></canvas>
     
     <!-- Container for the AI response -->
     <div id="ai-response" style="margin-top: 20px;"></div>
   </div>
-  
-  
 </div>
+
  
     <!-- AI Detection Tab -->
     <div class="tab-content" id="ai-detection">

@@ -1,4 +1,5 @@
 let currentChart = null;  // Variable to store the current chart instance
+let studentGradesChart = null; // Variable to store the second chart instance
 
 async function generateStudentAnalysis() {
   const fileInput = document.getElementById('excel-upload');
@@ -21,8 +22,11 @@ async function generateStudentAnalysis() {
     return showError('analysis-output', 'Uploaded file is empty.');
   }
 
-  // Proceed with generating the chart first
+  // Proceed with generating the first chart
   generateCharts();
+
+  // Proceed with generating the second chart
+  generateStudentGradesChart();
 
   // Pass the text to your AI analysis and display the generated paragraph below the chart
   await generateAIResponse({
@@ -33,7 +37,7 @@ async function generateStudentAnalysis() {
   });
 }
 
-// Function to generate charts after AI paragraph generation
+// Function to generate the first chart (Average Scores by Homework)
 function generateCharts() {
   const fileInput = document.getElementById('excel-upload');
   const file = fileInput.files[0];
@@ -79,7 +83,7 @@ function generateCharts() {
       avg === minAvg ? 'rgba(255, 99, 132, 1)' : 'rgba(75, 192, 192, 1)'
     );
 
-    // Get the canvas context and generate the chart.
+    // Get the canvas context and generate the first chart.
     const ctx = document.getElementById('scoreChart');
     if (ctx) {
       const chartCtx = ctx.getContext('2d');
@@ -122,7 +126,84 @@ function generateCharts() {
   reader.readAsBinaryString(file);
 }
 
+// Function to generate the second chart (Grades by Student)
+function generateStudentGradesChart() {
+  const fileInput = document.getElementById('excel-upload');
+  const file = fileInput.files[0];
+  if (!file) {
+    alert("Please upload a file first.");
+    return;
+  }
 
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const data = e.target.result;
+    const workbook = XLSX.read(data, { type: 'binary' });
+
+    // Assuming we work with the first sheet
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+    // Identify homework columns; adjust as necessary for your data structure.
+    const homeworkColumns = Object.keys(jsonData[0]).filter(key =>
+      key.toLowerCase().includes("homework")
+    );
+
+    // Extract student names (assuming they are stored in the first column of the sheet)
+    const studentNames = jsonData.map(row => row["Student Name"] || "Unknown");  // Adjust this if necessary
+
+    // Create an array to store student grades for each homework.
+    const studentGrades = jsonData.map(row => {
+      return homeworkColumns.map(col => row[col] || 0); // Collect grades for each student per homework
+    });
+
+    // Generate a color for each student (distinct colors for each line)
+    const colors = studentGrades.map((_, index) => {
+      return `hsl(${(index * 360 / studentGrades.length)}, 100%, 50%)`; // Generate a distinct color for each student
+    });
+
+    // Get the canvas context and generate the second chart.
+    const ctx = document.getElementById('studentGradesChart');
+    if (ctx) {
+      const chartCtx = ctx.getContext('2d');
+
+      // Destroy the old chart if it exists
+      if (studentGradesChart) {
+        studentGradesChart.destroy();
+      }
+
+      // Create a new line chart for student grades
+      studentGradesChart = new Chart(chartCtx, {
+        type: 'line',
+        data: {
+          labels: homeworkColumns,
+          datasets: studentGrades.map((grades, index) => ({
+            label: studentNames[index],  // Use student names here
+            data: grades,
+            borderColor: colors[index],
+            backgroundColor: 'rgba(0,0,0,0)', // Transparent background
+            fill: false,
+            borderWidth: 2
+          }))
+        },
+        options: {
+          scales: {
+            y: {
+              title: {
+                display: true,
+                text: 'Grade'
+              }
+            }
+          }
+        }
+      });
+    } else {
+      console.error('Canvas element #studentGradesChart not found.');
+    }
+  };
+
+  reader.readAsBinaryString(file);
+}
 
 // Function to handle the file change event and display the file name
 function handleFileChange(event) {
@@ -167,9 +248,8 @@ function readExcelFile(file) {
 // Function to display error messages in the output box
 function showError(elementId, message) {
   const output = document.getElementById(elementId);
-  output.innerHTML = `
-    <div class="error">
+  output.innerHTML = 
+    `<div class="error">
       <i class="fas fa-exclamation-circle"></i> ${message}
-    </div>
-  `;
+    </div>`;
 }
