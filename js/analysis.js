@@ -1,4 +1,4 @@
-// try to  ignore  the  error line
+// try to  ignore  the  error line 
 let currentChart = null;  // Variable to store the current chart instance
 let studentGradesChart = null; // Variable to store the second chart instance
 
