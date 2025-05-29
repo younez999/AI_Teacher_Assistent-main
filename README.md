@@ -8,12 +8,17 @@ An AI-powered web application designed to assist Chinese language/culture teache
 
 Watch how the AI Assistant for Teachers works:
 
-<video width="100%" controls>
-  <source src="videos/1.mp4" type="video/mp4">
-  Your browser does not support the video tag. You can <a href="videos/1.mp4">download the video</a> instead.
-</video>
+[![AI Teacher Assistant Demo](https://img.youtube.com/vi/YvFdqR2m7bU/maxresdefault.jpg)](https://youtu.be/YvFdqR2m7bU?si=U6owKCYsMg3pLl9q)
 
-*This video demonstrates all the key features and how to use the application effectively.*
+*Click the image above to watch the full demo video on YouTube*
+
+**What you'll see in the demo:**
+- 🤖 **Chatbot Assistant** - Ask teaching-related questions
+- 📚 **Lesson Plan Generator** - Create structured lesson plans
+- 📝 **Exercise Generator** - Generate various types of exercises
+- 🎬 **Multimedia Resources** - Search YouTube videos and Wikipedia articles
+- 📊 **Student Analysis** - Upload and analyze Excel data with charts
+- 🔍 **AI Detection** - Detect AI-generated content
 
 ## 🚀 Features
 
