@@ -165,6 +165,27 @@ The deployment automatically updates when changes are pushed to the main branch 
 - **Live Deployment:**  
   The application is now deployed and accessible online at https://ai-teacher-assistant-latest.onrender.com
 
+## 🧪 Testing the Application
+
+### 📊 Student Analysis Tool Test Data
+<div align="center">
+  
+  <img width="12" />
+  <img src="https://img.shields.io/badge/Test_Data-4CAF50?style=for-the-badge&logo=checkmark&logoColor=white" height="40" alt="Test Data" />
+</div>
+
+A sample Excel file is provided in the [`test/`](test/) folder for testing the Student Analysis feature:
+
+📁 **File**: [`test/students_grades.xlsx`](test/students_grades.xlsx)  
+🎯 **Purpose**: Test the student performance analysis and chart generation features  
+🚀 **Usage**: Upload this file in the "Analysis" tab to see how the tool processes student data and generates charts
+
+> 💡 **Quick Start**: This test file contains sample student grade data that you can use to explore the analysis capabilities without needing to create your own Excel file.
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Ready_to_Test-28a745?style=flat-square&logo=play&logoColor=white" alt="Ready to Test" />
+</div>
+
 ## 📄 License
 
 This project is for educational and personal use. Feel free to customize or expand upon it.
