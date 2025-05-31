@@ -62,7 +62,6 @@ Watch how the AI Assistant for Teachers works:
   <img width="12" />
   <img src="https://img.shields.io/badge/Wikipedia-000000?style=for-the-badge&logo=wikipedia&logoColor=white" height="30" alt="Wikipedia" />
   <img width="12" />
-  <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" height="30" alt="Render" />
 </div>
 
 - **YouTube Data API** – Video resource integration
@@ -92,6 +91,9 @@ project-root/
 │
 ├── videos/                   # Demo videos
 │   └── 1.mp4                # Project demonstration video
+│
+├── test/                     # Test data files
+│   └── students_grades.xlsx  # Sample Excel file for testing student analysis
 │
 ├── css/                      # Stylesheets
 │   ├── aiDetection.css
@@ -132,10 +134,16 @@ Simply visit [https://ai-teacher-assistant-latest.onrender.com](https://ai-teach
 
 ## 🌐 Deployment
 
-This application is deployed on [Render.com](https://render.com/) and is accessible at:
+<div align="center">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" height="30" alt="Docker" />
+  <img width="12" />
+  <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" height="30" alt="Render" />
+</div>
+
+This application is containerized using **Docker** and deployed on [Render.com](https://render.com/). It is accessible at:
 **https://ai-teacher-assistant-latest.onrender.com**
 
-The deployment automatically updates when changes are pushed to the main branch of the repository.
+The deployment automatically updates when changes are pushed to the main branch of the repository. The Docker containerization ensures consistent deployment across different environments.
 
 ## 📦 External Dependencies
 
@@ -169,7 +177,7 @@ The deployment automatically updates when changes are pushed to the main branch 
 
 ### 📊 Student Analysis Tool Test Data
 <div align="center">
-  
+  <img src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white" height="40" alt="Excel" />
   <img width="12" />
   <img src="https://img.shields.io/badge/Test_Data-4CAF50?style=for-the-badge&logo=checkmark&logoColor=white" height="40" alt="Test Data" />
 </div>
