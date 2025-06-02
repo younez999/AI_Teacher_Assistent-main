@@ -54,7 +54,7 @@ Watch how the AI Assistant for Teachers works:
 </div>
 
 - **OpenRouter API** – LLM models integration for AI responses
-- **DeepSeek** – AI model for content generation and analysis
+- **DeepSeek** – AI model for content generation and analysis **deepseek/deepseek-r1-0528-qwen3-8b:free**
 
 ### External Services & APIs
 <div align="center">
